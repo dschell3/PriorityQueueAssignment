@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import java.time.LocalDate
 
- public class Movie {
+ public class Movie implements Comparable<Movie> {
     // attributes
     private String title;
     private String genre;
@@ -58,5 +58,10 @@ import java.time.LocalDate
          return s;
      }
 
-
+     // compareTo -> compare to movies based on their recommendation. (this & other)
+     @Override
+     public int compareTo( Movie other ) {
+        return Integer.compare(other.recommendation, this.recommendation);
+        // flipped the comparison, b/c Higher recommendation == Higher Priority
+     }
  }
