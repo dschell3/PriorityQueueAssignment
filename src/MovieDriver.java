@@ -38,7 +38,7 @@ public class MovieDriver {
         // insert movie objects
         // display the contents of the queue
         // enhanced menu w/ options: insert, peek, print, delete, exit
-            // display the menu
+            // display the menu -> method
             // enact the option: all possible w/ API + existing methods
         // test_* assert equivalent in java...look for how when done w/ implementation
     }
@@ -67,6 +67,15 @@ public class MovieDriver {
         ...
     }
 
+    private static void displayMenu() {
+        ...
+    }
 
+    private static void insertMovie() {
+        ...
+    }
 
+    private static void menuManager() {
+        ...
+    }
 }
