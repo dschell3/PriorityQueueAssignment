@@ -5,7 +5,7 @@ import java.time.LocalDate;
  * Implements Comparable for default comparison based on recommendation
  */
 
-import java.time.LocalDate
+import java.time.LocalDate;
 
  public class Movie implements Comparable<Movie> {
     // attributes
