@@ -52,15 +52,57 @@ public class MovieDriver {
     }
 
     private static void insertSampleMovies() {
-        ...
+        System.out.println("\n|****** INSERTING SAMPLE MOVIES INTO QUEUE ******|");
+
+        // instantiate some Movie objects
+        Movie m1 = new Movie("Title1", "Drama", "R",
+                LocalDate.of(2000, 1, 1), 1);
+        Movie m2 = new Movie("Title2", "Drama", "R",
+                LocalDate.of(2000, 2, 2), 9);
+        Movie m3 = new Movie("Title3", "Comedy", "PG-13",
+                LocalDate.of(20012, 1, 1), 7);
+        Movie m4 = new Movie("Title4", "Romantic Comedy", "PG",
+                LocalDate.of(2002, 2, 2), 7);
+        Movie m5 = new Movie("Title5", "Comedy", "R",
+                LocalDate.of(2001, 1, 1), 10);
+        Movie m6 = new Movie("Title6", "Family", "G",
+                LocalDate.of(2010, 2, 2), 4);
+
+        // insert them into the queue...don't use insertMovie() b/c object details already defined
+        moviePriorityQueue.add(m1);
+        moviePriorityQueue.add(m2);
+        moviePriorityQueue.add(m3);
+        moviePriorityQueue.add(m4);
+        moviePriorityQueue.add(m5);
+        moviePriorityQueue.add(m6);
+
+        // let user know, sample movies were successfully added to the queue
+        System.out.println("6 Sample movies were successfully added");
     }
 
     private static void peekMovie() {
-        ...
+        System.out.println("\n|****** FIRST PRIORITY MOVIE ******|");
+
+        // check if queue is empty, if so let user know and return to call
+        if (moviePriorityQueue.isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        // queue is not empty, take a peek; execution falls off, no return needed
+        System.out.println(moviePriorityQueue.peek());
     }
 
     private static void printQueue() {
-        ...
+        System.out.println("\n|****** MOVIE QUEUE CONTENTS ******|");
+
+        // check if queue is empty, if so let user know and return to call
+        if (moviePriorityQueue.isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        // print the queue...use toString in a loop?
     }
 
     private static void removeMovie() {
@@ -68,7 +110,12 @@ public class MovieDriver {
     }
 
     private static void displayMenu() {
-        ...
+        System.out.println("\n|****** MOVIE QUEUE MENU ******|");
+        System.out.println("1. Insert a new movie");
+        System.out.println("2. To peek at the next movie in the queue");
+        System.out.println("3. Print the queue");
+        System.out.println("4. Delete the first priority movie");
+        System.out.println("5. Exit");
     }
 
     private static void insertMovie() {
