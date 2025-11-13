@@ -14,21 +14,32 @@ public class MovieDriver {
     private static PriorityQueue<Movie> moviePriorityQueue;
 
     public static void main(String[] args) {
+        System.out.println("|****** MOVIE PRIORITY QUEUE APP ******|");
+
         // getChoice() -> ask the user how they wish to organize
         //                their movie queue
+        int choice = getChoice();
 
         // createQueue() -> based on their choice, generate a PQueue,
         //                use java API
+        createPQueue( choice );
 
         // insertSampleMovies() -> insert some movie objects into queue
+        insertSampleMovies();
 
         // peek() -> display the movie with the 1st priority in the queue. !(delete)
+        peekMovie();
 
         // printQueue() -> display the contents of the queue -> loop(toString)
+        printQueue();
 
         // removeMovie() -> remove the movie object with first priority
+        removeMovie();
 
         // re: printQueue() - display the contents of the queue
+        printQueue();
+
+        // add enhanced loop next
 
         // Test the code...assert equivalent in Java?
 
@@ -70,8 +81,19 @@ public class MovieDriver {
         return choice;
     }
 
-    private static void createPQueue() {
-        ...
+    private static void createPQueue( int choice ) {
+        if ( choice == 1 ) {
+            System.out.println("Queue Priority based on: Recommendation");
+            moviePriorityQueue = new PriorityQueue<>();     // default is recommendation
+        }
+        else if ( choice == 2) {
+            System.out.println("Queue Priority is based on: Release Date with Earliest release date first");
+            moviePriorityQueue = new PriorityQueue<>( new MovieReleaseDate() );
+        }
+        else {
+            System.out.println("Queue Priority is based on: Genre");
+            moviePriorityQueue = new PriorityQueue<>( new MovieGenre() );
+        }
     }
 
     private static void insertSampleMovies() {
@@ -126,6 +148,9 @@ public class MovieDriver {
         }
 
         // TODO - print the queue...use toString in a loop?
+        for ( Movie movie : moviePriorityQueue ) {
+            movie.toString();
+        }
     }
 
     private static void removeMovie() {
@@ -188,6 +213,5 @@ public class MovieDriver {
     }
 
     private static void menuManager() {
-        ...
     }
 }
