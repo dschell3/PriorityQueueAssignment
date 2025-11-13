@@ -44,7 +44,30 @@ public class MovieDriver {
     }
 
     private static int getChoice() {
-        ...
+        System.out.println("How do you want to organize your Priority Queue?");
+        System.out.println("1. Recommendation (Highest first)");
+        System.out.println("2. Release Date (Oldest first)");
+        System.out.println("3. Genre (Alphabetically)");
+        System.out.println("Enter [1-3] to select your choice.");
+
+        int choice = -1;            // assign an impossible value
+        boolean done = false;       // flag to determine if input is valid
+
+        while (!done) {
+            try {
+                choice = scanner.nextInt();
+                if (choice > 0 && choice < 4) {
+                    done = true;
+                } else {
+                    System.out.println("Enter a number between 1 and 3 inclusive.");
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Invalid input. Must be a number");
+                scanner.nextLine();
+            }
+        }
+        return choice;
     }
 
     private static void createPQueue() {
