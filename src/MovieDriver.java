@@ -40,6 +40,7 @@ public class MovieDriver {
         printQueue();
 
         // add enhanced loop next
+        menuManager();
 
         // Test the code...assert equivalent in Java?
 
@@ -52,6 +53,7 @@ public class MovieDriver {
             // display the menu -> method
             // enact the option: all possible w/ API + existing methods
         // test_* assert equivalent in java...look for how when done w/ implementation
+        // JUnit is the Java version
     }
 
     private static int getChoice() {
@@ -105,7 +107,7 @@ public class MovieDriver {
         Movie m2 = new Movie("Title2", "Drama", "R",
                 LocalDate.of(2000, 2, 2), 9);
         Movie m3 = new Movie("Title3", "Comedy", "PG-13",
-                LocalDate.of(20012, 1, 1), 7);
+                LocalDate.of(2012, 1, 1), 7);
         Movie m4 = new Movie("Title4", "Romantic Comedy", "PG",
                 LocalDate.of(2002, 2, 2), 7);
         Movie m5 = new Movie("Title5", "Comedy", "R",
@@ -147,9 +149,17 @@ public class MovieDriver {
             return;
         }
 
-        // TODO - print the queue...use toString in a loop?
-        for ( Movie movie : moviePriorityQueue ) {
-            movie.toString();
+        // make a temp copy of the queue, to not destroy data
+        PriorityQueue<Movie> temp;
+
+        // default comparator == null, otherwise assign correct comparator to copy queue
+        if (moviePriorityQueue.comparator() == null) { temp = new PriorityQueue<>(); }
+        else { temp = new PriorityQueue<>(moviePriorityQueue.comparator()); }
+        temp.addAll(moviePriorityQueue);
+
+        // will now print the contents of the movie priority queue completely sorted
+        while ( !temp.isEmpty() ) {     // loop until empty
+            System.out.println(temp.remove());
         }
     }
 
@@ -213,5 +223,40 @@ public class MovieDriver {
     }
 
     private static void menuManager() {
+        // runs the menu loop for the enhanced queue operations
+        boolean done = false;
+
+        while ( !done ) {
+            displayMenu();
+            int choice = -1;
+            try {
+                choice = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println( "Invalid input. Must be a number." );
+                scanner.nextLine();
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    insertMovie();
+                    break;
+                case 2:
+                    peekMovie();
+                    break;
+                case 3:
+                    printQueue();
+                    break;
+                case 4:
+                    removeMovie();
+                    break;
+                case 5:
+                    done = true;
+                    System.out.println("Leaving Movie Queue Menu");
+                    break;
+                default:    // Number was not in valid range
+                    System.out.println("Number must be between 1 and 5 inclusive.");
+            }
+        }
     }
 }
