@@ -125,7 +125,7 @@ public class MovieDriver {
             return;
         }
 
-        // print the queue...use toString in a loop?
+        // TODO - print the queue...use toString in a loop?
     }
 
     private static void removeMovie() {
@@ -152,7 +152,39 @@ public class MovieDriver {
     }
 
     private static void insertMovie() {
-        ...
+        // Movie : title, genre, rating, date(yr, m, d), recommendation
+        System.out.println("\n|****** INSERT MOVIE ******|");
+
+        scanner.nextLine();   // clear buffer
+
+        System.out.println("Enter title: ");
+        String title = scanner.nextLine();
+
+        System.out.println("Enter genre: ");
+        String genre = scanner.nextLine();
+
+        System.out.println("Enter rating( G, PG, PG-13, R ): ");
+        String rating = scanner.nextLine();
+
+        System.out.println("Enter release date year: ");
+        int yr = scanner.nextInt();
+
+        System.out.println("Enter release date month: ");
+        int m = scanner.nextInt();
+
+        System.out.println("Enter release date day: ");
+        int d = scanner.nextInt();
+        // TODO - Validate days are valid for the given month
+
+        System.out.println("Enter recommendation( 0 - 10 ): ");
+        int recommendation = scanner.nextInt();
+
+        LocalDate date = LocalDate.of(yr, m, d);
+        Movie movie = new Movie( title, genre, rating, date, recommendation );
+
+        moviePriorityQueue.add(movie);
+        System.out.println("\nAdded Movie: ");
+        System.out.println(movie);                         // use toString if format is goofy
     }
 
     private static void menuManager() {
