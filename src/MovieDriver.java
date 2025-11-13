@@ -10,7 +10,7 @@ import java.util.Scanner;           // handles user input
 
 public class MovieDriver {
 
-    private static Scanner scanner = new Scanner((System.in));
+    private static final Scanner scanner = new Scanner((System.in));
     private static PriorityQueue<Movie> moviePriorityQueue;
 
     public static void main(String[] args) {
@@ -228,7 +228,7 @@ public class MovieDriver {
 
         while ( !done ) {
             displayMenu();
-            int choice = -1;
+            int choice;
             try {
                 choice = scanner.nextInt();
             } catch (Exception e) {
