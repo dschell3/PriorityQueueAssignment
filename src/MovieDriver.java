@@ -42,8 +42,6 @@ public class MovieDriver {
         // add enhanced loop next
         menuManager();
 
-        // Test the code...assert equivalent in Java?
-
         // main will become ineligible - too long, parse into methods:
         // get the user's choice of queue priority rules
         // create the desired queue
@@ -52,8 +50,7 @@ public class MovieDriver {
         // enhanced menu w/ options: insert, peek, print, delete, exit
             // display the menu -> method
             // enact the option: all possible w/ API + existing methods
-        // test_* assert equivalent in java...look for how when done w/ implementation
-        // JUnit is the Java version
+            // loop until exit entered
     }
 
     private static int getChoice() {
@@ -158,8 +155,11 @@ public class MovieDriver {
         temp.addAll(moviePriorityQueue);
 
         // will now print the contents of the movie priority queue completely sorted
+        int count = 1;
         while ( !temp.isEmpty() ) {     // loop until empty
+            System.out.println(count + ".");
             System.out.println(temp.remove());
+            ++count;
         }
     }
 
