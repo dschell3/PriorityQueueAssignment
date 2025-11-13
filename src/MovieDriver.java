@@ -106,7 +106,17 @@ public class MovieDriver {
     }
 
     private static void removeMovie() {
-        ...
+        System.out.println("\n|****** DELETE FIRST PRIORITY MOVIE ******|");
+
+        // check if queue is empty, if so let user know and return to call
+        if (moviePriorityQueue.isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        Movie rm = moviePriorityQueue.remove();
+        System.out.println("\nRemoved Movie: ");
+        System.out.println(rm);                         // use toString if format is goofy
     }
 
     private static void displayMenu() {
