@@ -9,11 +9,11 @@ import java.time.LocalDate;
 
  public class Movie implements Comparable<Movie> {
     // attributes
-    private String title;
-    private String genre;
-    private String rating;
-    private LocalDate release_date;
-    private int recommendation;  // [ 0 - 10 ]
+    private String title;               // title of the movie
+    private String genre;               // genre/category of movie
+    private String rating;              // rating of the movie (G, PG, PG-13, R, etc)
+    private LocalDate release_date;     // date the movie was released
+    private int recommendation;         // [ 0 - 10 ]
 
      // default constructor
      public Movie() {
@@ -62,6 +62,7 @@ import java.time.LocalDate;
      @Override
      public int compareTo( Movie other ) {
         return Integer.compare(other.recommendation, this.recommendation);
+        // java PriorityQueue is min-heap, so 1 would be higher priority than 10 by default
         // flipped the comparison, b/c Higher recommendation == Higher Priority
      }
  }

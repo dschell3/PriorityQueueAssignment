@@ -10,8 +10,12 @@ import java.util.Comparator;
      @Override
      public int compare(Movie a, Movie b) {
         return a.getRelease_date().compareTo(b.getRelease_date());
-         // if < 0 ; a was released before b
+        // if < 0 ; a was released before b
          // if > 0 ; b was released before a
          // if = 0 ; a was released at the same time as b
+
+         // this compare() is not reversed because the default behavior of the min-heap is
+         // already earliest date first, so earlier dates == higher priority which is what
+         // we want
      }
 }
