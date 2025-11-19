@@ -3,10 +3,10 @@
  * Allows users to create and manage a priority queue of movies
  * with different comparison methods. Kind of uses Strategy Design pattern.
  *
- * Group Members: Darren Schell,
+ * Group Members: Darren Schell, Aws Khaleel
  */
 
-import java.time.DateTimeException;
+import java.time.DateTimeException; // provides DateTime exception - error check days valid
 import java.time.LocalDate;         // LocalDate object to represent data
 import java.util.PriorityQueue;     // java API data structure
 import java.util.Scanner;           // handles user input
